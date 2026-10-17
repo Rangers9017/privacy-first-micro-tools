@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Crafted Micro Tools | Yapay Zeka Destekli Araçlar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans selection:bg-indigo-500 selection:text-white">
+  <div class="max-w-5xl mx-auto px-4 py-10 md:py-14">
+    <!-- Header & Language Switcher -->
+    <header class="border-b border-slate-800 pb-8 mb-10 flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-medium mb-3">
+          <span id="badge-text">🤖 AI-Assisted Single-File Web Utilities</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-white">AI-Crafted Micro Tools</h1>
+        <p id="subtitle-text" class="text-slate-400 mt-2 text-sm md:text-base max-w-2xl leading-relaxed"></p>
+      </div>
+
+      <!-- TR / EN Toggle -->
+      <div class="flex items-center bg-slate-900 border border-slate-800 rounded-xl p-1 self-start">
+        <button onclick="setLang('tr')" id="btn-tr" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition">
+          🇹🇷 TR
+        </button>
+        <button onclick="setLang('en')" id="btn-en" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition">
+          🇬🇧 EN
+        </button>
+      </div>
+    </header>
+
+    <!-- Tools Grid -->
+    <div id="tools-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+
+    <!-- Footer -->
+    <footer id="footer-text" class="mt-16 pt-8 border-t border-slate-900 text-center text-xs text-slate-500"></footer>
+  </div>
+
+  <script>
+    let currentLang = "tr";
+
+    const uiText = {
+      tr: {
+        badge: "🤖 Yapay Zeka Destekli Tek Dosya Web Araçları",
+        subtitle: "Günlük ihtiyaçları çözmek için yapay zeka iş birliğiyle geliştirilmiş, sunucu gerektirmeyen ve verileri yalnızca cihazınızda (localStorage) saklayan mikro uygulamalar.",
+        launchBtn: "Uygulamayı Aç →",
+        sourceBtn: "Kaynak Kod",
+        footer: "Tüm araçlar %100 tarayıcı üzerinde (Client-Side) çalışır • Hiçbir veri dış sunuculara gönderilmez."
+      },
+      en: {
+        badge: "🤖 AI-Assisted Single-File Web Utilities",
+        subtitle: "A collection of zero-dependency micro web applications built in collaboration with AI. Runs 100% in your browser with local storage privacy.",
+        launchBtn: "Launch Tool →",
+        sourceBtn: "Source Code",
+        footer: "All tools run 100% client-side in your browser • No data ever leaves your device."
+      }
+    };
+
+    // YENİ ARAÇ EKLEDİKÇE BURAYA TR VE EN BİLGİLERİNİ GİREBİLİRSİN
+    // ADD NEW TOOLS HERE WITH BOTH TR AND EN METADATA
+    const toolsList = [
+      {
+        id: "01",
+        path: "./tools/para-programlama/index.html",
+        repoPath: "./tools/para-programlama/",
+        date: "2026",
+        tags: ["LocalStorage", "Finance", "Zero-Dependency", "Single-File"],
+        tr: {
+          title: "Para Programlama & Borç Takip",
+          category: "Finans & Bütçe",
+          description: "Maaş, ek gelir, sabit gider, kredi kartı, ek hesap (KMH) ve kredi borçlarının kalan vade/bitiş tarihi hesaplayıcısı ve erken kapama simülatörü."
+        },
+        en: {
+          title: "Budget & Debt Payoff Tracker",
+          category: "Personal Finance",
+          description: "Track salary, income, fixed expenses, credit cards, overdrafts, and loans. Automatically calculates remaining months, payoff dates, and early payoff scenarios."
+        }
+      }
+    ];
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      // Update toggle buttons
+      const btnTr = document.getElementById("btn-tr");
+      const btnEn = document.getElementById("btn-en");
+      if (lang === "tr") {
+        btnTr.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition";
+        btnEn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition";
+      } else {
+        btnEn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition";
+        btnTr.className = "px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition";
+      }
+
+      // Update static texts
+      document.getElementById("badge-text").textContent = uiText[lang].badge;
+      document.getElementById("subtitle-text").textContent = uiText[lang].subtitle;
+      document.getElementById("footer-text").textContent = uiText[lang].footer;
+
+      // Render cards
+      const grid = document.getElementById("tools-grid");
+      grid.innerHTML = toolsList.map(tool => {
+        const t = tool[lang];
+        return `
+          <div class="bg-slate-900/70 border border-slate-800 hover:border-indigo-500/50 transition-all rounded-2xl p-6 flex flex-col justify-between shadow-lg">
+            <div>
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-indigo-300 font-medium">${t.category}</span>
+                <span class="font-mono text-slate-500">#${tool.id} • ${tool.date}</span>
+              </div>
+              <h2 class="text-xl font-semibold text-white mb-2">${t.title}</h2>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4">${t.description}</p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                ${tool.tags.map(tag => `<span class="text-[11px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-300">#${tag}</span>`).join("")}
+              </div>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-800/80">
+              <a href="${tool.path}" class="flex-1 text-center bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium py-2.5 px-4 rounded-xl transition">
+                ${uiText[lang].launchBtn}
+              </a>
+              <a href="${tool.repoPath}" class="text-center bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-medium py-2.5 px-4 rounded-xl transition">
+                ${uiText[lang].sourceBtn}
+              </a>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // Initialize default language
+    setLang("tr");
+  </script>
+</body>
+</html>
