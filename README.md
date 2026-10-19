@@ -1,28 +1,29 @@
 # Privacy-First Micro Web Tools
 
-Tarayıcıda çalışan, günlük işler için küçük web araçları. Mevcut araç verilerini kendi tarayıcında tutar.
+A small collection of browser tools for practical tasks. The current app is a budget and debt tracker built with HTML, CSS, and JavaScript.
 
-**Teknolojiler:** HTML · CSS · JavaScript  
-**Lisans:** MIT
+**License:** MIT
 
-## Araç
+## Budget & Debt Tracker
 
-| Araç | Ne işe yarar |
-| --- | --- |
-| [Bütçe ve Borç Takip](./tools/para-programlama/index.html) | Gelir, gider ve borç ödeme planını takip etmeye yardımcı olur. |
+[Open the app](./tools/para-programlama/index.html) · [Read the full guide](./tools/para-programlama/README.md)
 
-Uygulama statik bir HTML sayfasıdır; kurulum veya sunucu gerekmeden tarayıcıda açılabilir.
+The tracker brings monthly income, expenses, and debt payments together in one view. It supports credit cards, overdraft accounts (KMH), and loans, and lets you compare estimated payoff timelines with extra monthly payments.
 
-## Veriler ve gizlilik
+## Run locally
 
-Araç verileri tarayıcının `localStorage` alanında, kullandığın tarayıcı profiline kaydedilir. Tarayıcı verilerini silersen uygulama kayıtları da silinir. Kod kişisel finans verilerini bir sunucuya göndermez. Yine de hassas bilgi girmeden önce kaynak kodunu incele; ortak kullanılan cihazlarda kayıtlı verileri temizlemeyi unutma.
+Open `tools/para-programlama/index.html` in a modern browser. There is no package manager, build step, or backend for the current app. Tailwind CSS is loaded from its CDN, so the page needs an internet connection to load those styles.
 
-Hesaplamalar planlama amacı taşır, finansal tavsiye değildir.
+## Data and privacy
 
-## Geliştirme notu
+The app saves entries in that browser profile's `localStorage`. It does not send financial data to a server. Clearing browser data also removes the saved entries, and data does not move automatically to another browser or device. Review the source before entering sensitive information, especially on a shared computer.
 
-Uygulamanın kapsamını ve son kontrollerini Mahmutcan Zaman belirledi. Geliştirme sırasında yapay zekâ desteğinden yararlanıldı.
+Payoff dates are estimates based on the figures entered and the app's calculation assumptions. They are for planning and are not financial advice.
+
+## Development note
+
+Mahmutcan Zaman set the app's requirements and reviews its behavior. AI assistance was used during development.
 
 ## Türkçe
 
-Bu depo, günlük işler için tarayıcıda çalışan küçük araçları içeriyor. Şu an gelir, gider ve borç ödemelerini takip etmeye yardımcı olan bir bütçe aracı bulunuyor. Uygulamayı açmak için [index.html dosyasına](./tools/para-programlama/index.html) tıklaman yeterli. Veriler kullandığın tarayıcıda kalır.
+Bu depodaki araçlar tarayıcıda çalışır. Şu an gelir, gider, kredi kartı, ek hesap ve kredi borçlarını takip etmeye yardımcı olan bir bütçe aracı bulunuyor. Veriler kullandığın tarayıcı profilinde saklanır. Ayrıntılar ve kullanım için [Türkçe uygulama rehberine](./tools/para-programlama/README.md) bakabilirsin.
