@@ -1,28 +1,41 @@
-# Bütçe ve Borç Takip
+# Budget & Debt Tracker | Bütçe ve Borç Takip
 
-Gelir, gider ve borç bilgilerini aynı ekranda takip etmeye yardımcı olan tek sayfalık bir tarayıcı aracı.
+A single-page browser app for keeping monthly income, expenses, and debt payments together.
 
-[Uygulamayı aç](./index.html)
+[Open the app](./index.html)
 
-## Neler yapar?
+## Features
 
-- Aylık gelir ve sabit giderleri kaydeder.
-- Kredi kartı, ek hesap ve kredi borçlarını ayrı ayrı izler.
-- Aylık taksitleri ve ek ödemeleri hesaba katar.
-- Mevcut ödeme tutarlarına göre tahmini borç kapanış sürelerini gösterir.
-- Ek ödeme miktarını değiştirerek farklı ödeme planlarını karşılaştırır.
+- Add monthly income and recurring expenses.
+- Track credit card, overdraft (KMH), and loan balances separately.
+- See monthly income, fixed expenses, debt installments, and remaining cash in one summary.
+- Estimate the remaining payoff time and projected payoff month for each debt.
+- Compare payoff plans by changing the extra monthly amount.
+- Record a regular installment or a one-off extra payment.
 
-Sonuçlar girilen bilgilere ve aracın hesaplama varsayımlarına bağlı tahminlerdir; kesin kapanış tarihi veya finansal tavsiye olarak değerlendirilmemelidir.
+Payoff timing is an estimate based on the values entered and the app's calculation assumptions. It is not a guaranteed date or financial advice.
 
-## Kullanım
+## Use and saved data
 
-`index.html` dosyasını güncel bir tarayıcıda aç. Kayıtlar aynı tarayıcı profilinin `localStorage` alanında tutulur; başka bir tarayıcıya veya cihaza kendiliğinden aktarılmaz. Tarayıcı verilerini silmek kayıtları da siler.
+Open `index.html` in a modern browser. The app stores its data in that browser profile's `localStorage`; it does not sync between browsers or devices. Clearing browser data also removes the saved entries. Back up important information before clearing the browser.
 
-Dışarı aktarım yapmadan önce önemli bilgilerin yedeğini kendin al.
+## Technical notes
 
-## Teknik bilgiler
+- The app is a single `index.html` file using HTML, CSS, and JavaScript.
+- Tailwind CSS is loaded from a CDN, so an internet connection is needed for those styles.
+- Mahmutcan Zaman set the app's requirements and reviews its behavior. AI assistance was used during development.
 
-- Tek dosya: `index.html`
-- HTML, CSS ve JavaScript
-- Tailwind CSS CDN üzerinden yüklenir; CDN bağlantısı yoksa sayfa stilleri etkilenebilir.
-- Uygulamanın kapsamı ve son kontrolleri Mahmutcan Zaman tarafından belirlendi. Geliştirme sırasında yapay zekâ desteğinden yararlanıldı.
+## Türkçe
+
+Gelir, gider ve borç bilgilerini aynı ekranda tutan tek sayfalık bir tarayıcı uygulamasıdır.
+
+### Özellikler
+- Aylık gelir ve düzenli giderleri kaydetme
+- Kredi kartı, ek hesap (KMH) ve kredi borçlarını ayrı izleme
+- Gelir, gider, taksit ve kalan tutarı özet ekranda görme
+- Girilen değerlere göre tahmini borç kapanış süresini inceleme
+- Ek ödeme tutarını değiştirerek farklı planları karşılaştırma
+- Taksit veya tek seferlik ara ödeme kaydetme
+
+### Kullanım ve kayıtlar
+`index.html` dosyasını güncel bir tarayıcıda aç. Veriler tarayıcı profilinin `localStorage` alanında saklanır; başka tarayıcıya veya cihaza otomatik aktarılmaz. Tarayıcı verilerini silmek kayıtları da siler. Kapanış tarihleri tahmindir, kesin sonuç veya finansal tavsiye değildir.
